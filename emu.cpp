@@ -85,8 +85,8 @@ private:
         struct
         {
             uint8_t Reserved[0x200]; //Reserved for Interpreter
-            uint8_t User[0xCA0]      //User Program space (3232 bytes, as per COSMAC VIP spec)
-            uint8_t Stack[0x30]      //Stack (48 bytes, up to 12 levels of nested subroutines)
+            uint8_t User[0xCA0];     //User Program space (3232 bytes, as per COSMAC VIP spec)
+            uint8_t Stack[0x30];     //Stack (48 bytes, up to 12 levels of nested subroutines)
             uint8_t Mem[0x20];       //Interpreter work area
             uint8_t V[0x10];         //General purpose registers V0 - VF
             uint8_t VRAM[0x100];     //Display memory
@@ -97,5 +97,6 @@ private:
     uint16_t PC;                  /* Instruction pointer */
     uint16_t I;                   /* Store address       */
     uint8_t SP;			  /* Stack pointer       */
-    uint8_t Delay, uint8_t Sound; /* Timer registers     */
-};[A
+    uint8_t Delay, Sound; /* Timer registers     */
+};
+int main(){}
