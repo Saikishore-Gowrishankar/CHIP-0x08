@@ -33,12 +33,11 @@
     o("cls",	   "00E0",  (u == 0x0 && nnn == 0xE0), (PC = nnn;)) /* Clear screen */\
     o("drw Vx, Vy, nibble", "Dxyn", (true), (;)) /* Display n-byte sprite starting at memory location I at (Vx, Vy), set VF = collision. */\
     /* Branch instructions */\
-    o("jp, V0, addr", "Bnnn", (true), (;)) /* Jump to location nnn + V0. */\
+    o("jp, V0, addr", "Bnnn", (u == 0xB), (PC = nnn;)) /* Jump to location nnn + V0. */\
     o("sys addr",  "0nnn",  (u == 0x0 && nnn != 0xE0), (PC = nnn;)) /* Jump to a machine code routine at nnn.*/\
     o("ret",       "0nEE",  (u == 0x0 && nnn == 0xEE), (PC = nnn;)) /* Return from subroutine */\
     o("jp addr",   "1nnn",  (u == 0x1), 	       (PC = nnn;)) /* Return from subroutine */\
-    o("call addr", "2nnn",  (u == 0x0 && nnn == 0xEE), (PC = nnn;)) /* Return from subroutine */\
-    o("jp, V0, addr", "Bnnn", (true), (;)) /* Jump to location nnn + V0. */\
+    o("call addr", "2nnn",  (u == 0x2), (PC = nnn;)) /* Return from subroutine */\
     /* Skip instruction */\
     o("se Vx, byte", "3xkk", (true), (;)) /* Skip next instruction if Vx = kk. */\
     o("sne Vx, byte", "4xkk", (true), (;)) /* Skip next instruction if Vx != kk. */\
@@ -97,5 +96,6 @@ private:
     //Special purpose registers (not stored in RAM to follow COSMAC documentation)
     uint16_t PC;                  /* Instruction pointer */
     uint16_t I;                   /* Store address       */
+    uint8_t SP;			  /* Stack pointer       */
     uint8_t Delay, uint8_t Sound; /* Timer registers     */
 };[A
