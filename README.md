@@ -1,6 +1,9 @@
 # CHIP-0x08
 An work-in-progress interpreter, assembler, and disassembler for the CHIP-8 instrution set
 
+# Emulator / Interpreter
+CHIP-0x08 emulates CHIP-8 instructions in an instruction-accurate manner. CHIP-8 instructions are fixed in length and the ROMS are loaded into a buffer and instructions are executed linearly. The back-end platform layer for the emulator will use SDL to render graphics to the screen. The instructions are defined in a static table within the source code as a macro.
+
 # Disassembly
 CHIP-0x08 will provide both Linear Sweep disassembly and Recursive Travel Disassembly.
 
