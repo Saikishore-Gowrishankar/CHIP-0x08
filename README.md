@@ -1,7 +1,7 @@
 # CHIP-0x08
 An work-in-progress interpreter, assembler, and disassembler for the CHIP-8 instrution set
 
-#Disassembly
+# Disassembly
 
 A recursive traversal disassembler for CHIP-8 assembly code files. CHIP-8 has fixed-length instructions that are two-bytes long, consisting of an opcode and data/address bits. This class provides an interface for a recursive traversal disassembler. Instead of disassembling code sequentially, it recursively
 steps through control flow of the code when it branches. CHIP-8 supports the following branch instructions:
